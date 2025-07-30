@@ -7,15 +7,20 @@ const userSchema=new mongoose.Schema({
         required:true,
         unique:true
    },
-   email:{
-    type:String,
-   },
+   email: {
+  type: String,
+  required: true,
+  unique: true,
+  lowercase: true,
+  trim: true
+},
+
    password:{
-    type:Number,
+    type:String,
     required:true,
     minLength:8
    },
    
 },{timestamps:true});
-const User=mongoose.model("user",userSchema);
+const User=mongoose.model("User",userSchema);
 module.exports=User;
