@@ -1,0 +1,13 @@
+# Node
+node_modules/
+.env
+logs/
+dist/
+
+# React
+client/node_modules/
+client/build/
+
+# System
+.DS_Store
+.vscode/
