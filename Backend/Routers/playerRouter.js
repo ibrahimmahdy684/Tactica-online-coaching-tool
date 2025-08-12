@@ -1,0 +1,13 @@
+const playerController=require('../Controllers/playerController');
+const authenticateUser=require('../Middlewares/authenticationMiddleware');
+const express=require('express');
+const { route } = require('./authRouter');
+
+const router=express.Router();
+router.post('/players',authenticateUser,playerController.createPlayer);
+router.get('/players',authenticateUser,playerController.getPlayers);
+router.get('/players/:id',authenticateUser,playerController.getSpecificPlayer);
+router.put('/players/:id',authenticateUser,playerController.updatePlayer);
+router.delete('/players/:id',authenticateUser,playerController.deletePlayer);
+
+module.exports=router;
