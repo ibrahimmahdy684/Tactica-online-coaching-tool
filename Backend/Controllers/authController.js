@@ -7,7 +7,7 @@ const authController={
     registerUser:async (req,res)=>{
     try{
 
-         console.log("Register Request Body:", req.body);  // Log the request body
+    
     const{userName,email,password}=req.body;
 
     const existingUser=await User.findOne({email});

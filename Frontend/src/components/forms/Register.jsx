@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function Register() {
     const [email, setEmail] = useState("");
@@ -18,9 +19,11 @@ export default function Register() {
                 email,
                 password
             });
+            toast.success("Register completed");
             navigate('/login');
         } catch (error) {
             console.error(error.response?.data || error.message);
+            toast.error("Register failed. Please try again");
             setError("Register failed. Please try again");
         }
     };
