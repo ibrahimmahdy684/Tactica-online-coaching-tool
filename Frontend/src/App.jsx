@@ -8,6 +8,7 @@ import Home from './Home/Home';
 import Login from './components/forms/Login'
 import Register from './components/forms/Register'
 import Dashboard from './components/Dashboard'
+import ProtectedRoute from './context/protectedroutes';
 function App() {
 
   return (
@@ -20,7 +21,12 @@ function App() {
             <Route path='/' element={<Home/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/register' element={<Register/>}/>
-            <Route path='/dashboard' element={<Dashboard/>}/>
+
+            <Route path='/dashboard' element={
+              <ProtectedRoute>
+              <Dashboard/>
+              </ProtectedRoute>
+              }/>
           </Routes>
         </div>
       </div>
