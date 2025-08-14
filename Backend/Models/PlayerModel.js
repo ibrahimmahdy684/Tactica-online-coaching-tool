@@ -47,6 +47,9 @@ const playerSchema=new mongoose.Schema({
     kicking:{
         type:Number,
     },
+    image:{
+        type:String
+    }
 },{timestamps:true});
 const Player=mongoose.model("Player",playerSchema);
 module.exports=Player;
