@@ -1,4 +1,4 @@
-const player = require("../../../../Backend/Models/PlayerModel");
+
 
 const PlayerCard=({player})=>{
     return(

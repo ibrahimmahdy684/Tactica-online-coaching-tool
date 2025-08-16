@@ -61,6 +61,15 @@ getSpecificPlayer:async(req,res)=>{
         return res.status(500).json({message:error.message});
     }
 },
+getCurrentUserPlayers:async(req,res)=>{
+try{
+    const player=await playerModel.find({coach:req.user.userId});
+    return res.status(200).json(player);
+}
+catch(error){
+   return res.status(500).json({message:error.message});
+}
+},
 updatePlayer:async(req,res)=>{
     try{const updates=req.body;
     const updatedPlayer=await playerModel.findByIdAndUpdate(req.params.id,updates,{new:true});

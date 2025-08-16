@@ -6,6 +6,7 @@ const playerSchema=new mongoose.Schema({
     },
     position:{
         type:String,
+        enum:["GK","DEF","MID","ATT"],
         required:true
     },
     rating:{
@@ -49,6 +50,10 @@ const playerSchema=new mongoose.Schema({
     },
     image:{
         type:String
+    },
+    coach:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"User",
     }
 },{timestamps:true});
 const Player=mongoose.model("Player",playerSchema);

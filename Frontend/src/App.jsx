@@ -9,6 +9,9 @@ import Login from './components/forms/Login'
 import Register from './components/forms/Register'
 import Dashboard from './components/Dashboard'
 import ProtectedRoute from './context/protectedroutes';
+import PlayersList from './components/Players/Players';
+import MyPlayers from './components/Players/MyPlayers';
+import PlayerForm from './components/Players/PlayerForm';
 function App() {
 
   return (
@@ -21,10 +24,20 @@ function App() {
             <Route path='/' element={<Home/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/register' element={<Register/>}/>
-
+            <Route path='/players' element={<PlayersList/>}/>
+            <Route path='/my-players' element={
+              <ProtectedRoute>
+              <MyPlayers/>
+              </ProtectedRoute>
+              }/>
             <Route path='/dashboard' element={
               <ProtectedRoute>
               <Dashboard/>
+              </ProtectedRoute>
+              }/>
+              <Route path='/player-form' element={
+              <ProtectedRoute>
+              <PlayerForm/>
               </ProtectedRoute>
               }/>
           </Routes>
