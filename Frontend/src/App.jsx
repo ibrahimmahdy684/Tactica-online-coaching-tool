@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { ToastContainer } from "react-toastify";
 import './App.css'
 import './index.css'
-import { Route, Router, Routes } from 'react-router-dom'
+import { Route, BrowserRouter, Routes } from 'react-router-dom'
 import Navbar from './components/layout/Navbar';
 import Home from './Home/Home';
 import Login from './components/forms/Login'
@@ -12,6 +12,7 @@ import ProtectedRoute from './context/protectedroutes';
 import PlayersList from './components/Players/Players';
 import MyPlayers from './components/Players/MyPlayers';
 import PlayerForm from './components/Players/PlayerForm';
+import TacticsBoard from './components/TacticsBoard';
 function App() {
 
   return (
@@ -39,6 +40,11 @@ function App() {
               <ProtectedRoute>
               <PlayerForm/>
               </ProtectedRoute>
+              }/>
+              <Route path='/tactics-board' element={
+                <ProtectedRoute>
+                  <TacticsBoard/>
+                </ProtectedRoute>
               }/>
           </Routes>
         </div>

@@ -10,13 +10,13 @@ export default function Navbar(){
        <Link to="/">Home</Link>
        {!isLoggedIn?(
         <>
-        <Link to="login">Login</Link>
-        <Link to="register">Register</Link>
+        <Link to="/login">Login</Link>
+        <Link to="/register">Register</Link>
         </>
        ):(
         <>
-        <Link to="Dashboard">Dashboard</Link>
-        <button onClick={logout}>Logout</button>
+        <Link to="/dashboard">Dashboard</Link>
+        <button className="bg-gray-700 px-4 py-2 rounded" onClick={logout}>Logout</button>
         </>
        )}
       </div>

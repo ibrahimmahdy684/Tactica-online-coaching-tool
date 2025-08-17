@@ -13,9 +13,10 @@ const MyPlayers=()=>{
     const[maxRating,setMaxRating]=useState("");
     const navigate=useNavigate();
     useEffect(()=>{
+        const fetchPlayers=async ()=>{
         try{
         const token=localStorage.getItem("token");
-        const players=axios.get("http://localhost:3000/api/v1/users/players",{
+        const players= await axios.get("http://localhost:5000/api/v1/users/players",{
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -28,6 +29,8 @@ const MyPlayers=()=>{
         toast.error("Failed to get players");
         setLoading(false);
         }
+    }
+    fetchPlayers();
 
     },[])
     const handleDelete=async (id)=>{

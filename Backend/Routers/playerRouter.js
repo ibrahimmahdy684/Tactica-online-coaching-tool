@@ -8,7 +8,7 @@ router.post('/players',authenticateUser,playerController.createPlayer);
 router.get('/players',playerController.getPlayers);
 router.get('/players/:id',authenticateUser,playerController.getSpecificPlayer);
 router.put('/players/:id',authenticateUser,playerController.updatePlayer);
-router.get('user/players',authenticateUser,playerController.getCurrentUserPlayers);
+router.get('/user/players',authenticateUser,playerController.getCurrentUserPlayers);
 router.delete('/players/:id',authenticateUser,playerController.deletePlayer);
 
 module.exports=router;

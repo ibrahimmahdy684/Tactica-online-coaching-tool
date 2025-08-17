@@ -13,7 +13,7 @@ const PlayersList=()=>{
 
     useEffect(()=>{
         try{
-        const players=axios.get("http://localhost:3000/api/v1/players");
+        const players=axios.get("http://localhost:5000/api/v1/players");
         setPlayers(players);
         setLoading(false);
         }

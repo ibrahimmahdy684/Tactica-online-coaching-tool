@@ -4,10 +4,11 @@ export const AuthContext=createContext()
 
 export function AuthProvider({children}){
     const[isLoggedIn,setIsLoggedIn]=useState(false);
-
+    const[loading,setLoading]=useState(true);
     useEffect(()=>{
     const token=localStorage.getItem('token');
     if(token) setIsLoggedIn(true);
+    setLoading(false);
     },[]);
 
     const login=(token)=>{
@@ -19,7 +20,7 @@ export function AuthProvider({children}){
         setIsLoggedIn(false);
     }
     return(
-        <AuthContext.Provider value={{isLoggedIn,login,logout}}>
+        <AuthContext.Provider value={{isLoggedIn,login,logout,loading}}>
             {children}
         </AuthContext.Provider>
         );

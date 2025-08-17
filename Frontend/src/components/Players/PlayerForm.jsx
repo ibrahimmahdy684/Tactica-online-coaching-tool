@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
-import{axios} from 'axios'
+import axios from 'axios'
 import {useParams} from "react-router-dom"
 export default function PlayerForm({initialValues}){
     const{id}=useParams();
@@ -35,7 +35,7 @@ export default function PlayerForm({initialValues}){
     const token=localStorage.getItem("token");
     try{
         if(initialValues){
-      await axios.put(`http://localhost:3000/api/v1/players/${id}`,formData,{
+      await axios.put(`http://localhost:5000/api/v1/players/${id}`,formData,{
         headers:{
             Authorization:`Bearer ${token}`
         },
@@ -44,7 +44,7 @@ export default function PlayerForm({initialValues}){
       toast.success("Player Updated successfully");
     }
     else{
-       await axios.post(`http://localhost:3000/api/v1/players`,formData,{
+       await axios.post(`http://localhost:5000/api/v1/players`,formData,{
         headers:{
             Authorization:`Bearer ${token}`
         },
