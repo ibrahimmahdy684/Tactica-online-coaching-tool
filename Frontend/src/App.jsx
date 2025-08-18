@@ -12,7 +12,9 @@ import ProtectedRoute from './context/protectedroutes';
 import PlayersList from './components/Players/Players';
 import MyPlayers from './components/Players/MyPlayers';
 import PlayerForm from './components/Players/PlayerForm';
-import TacticsBoard from './components/TacticsBoard';
+import TacticsBoard from './components/Tactics/TacticsBoard';
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 function App() {
 
   return (
@@ -21,6 +23,7 @@ function App() {
       <div className='app-container'>
         <Navbar/>
         <div className='content'>
+          <DndProvider backend={HTML5Backend}>
           <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/login' element={<Login/>}/>
@@ -47,6 +50,7 @@ function App() {
                 </ProtectedRoute>
               }/>
           </Routes>
+          </DndProvider>
         </div>
       </div>
     </>
