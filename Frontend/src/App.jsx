@@ -21,7 +21,7 @@ function App() {
     <>
       <ToastContainer position='top-center' autoClose={3000}/>
       <div className='app-container'>
-        <Navbar/>
+        
         <div className='content'>
           <DndProvider backend={HTML5Backend}>
           <Routes>

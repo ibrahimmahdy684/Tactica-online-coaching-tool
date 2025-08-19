@@ -8,12 +8,12 @@ export default function Pitch({ children, onDropPlayer }) {
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "Player",  
     drop: (item, monitor) => {
-      const offset = monitor.getSourceClientOffset();
+      const offset = monitor.getClientOffset();
       const pitchRect = dropRef.current.getBoundingClientRect();
 
       // Calculate new position relative to pitch
-      const left = ((offset.x - pitchRect.left) / pitchRect.width) * 100;
-      const top = ((offset.y - pitchRect.top) / pitchRect.height) * 100;
+      let left = ((offset.x - pitchRect.left) / pitchRect.width) * 100;
+      let top = ((offset.y - pitchRect.top) / pitchRect.height) * 100;
 
       const snap = 10;
       left = Math.round(left / snap) * snap;
