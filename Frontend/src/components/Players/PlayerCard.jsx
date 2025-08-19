@@ -13,7 +13,7 @@ const PlayerCard=({player})=>{
             <h3 className="">{player.name}</h3>
 
             <div className="">
-                {Player.position=="GK"?(
+                {player.position=="GK"?(
                 <>
                 <span>DIV: {player.diving}</span>
                 <span>REF: {player.reflexes}</span>

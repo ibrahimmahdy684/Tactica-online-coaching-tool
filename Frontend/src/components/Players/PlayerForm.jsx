@@ -7,6 +7,7 @@ export default function PlayerForm({initialValues}){
     const[formData,setFormData]=useState({ name: "",
     position: "DEF",
     image: "",
+    number:"",
     rating:"",
     pace: "",
     shooting: "",
@@ -81,6 +82,13 @@ export default function PlayerForm({initialValues}){
         name="rating"
         placeholder="Player Rating"
         value={formData.rating}
+        onChange={handleChange}
+        />
+        <input
+        type="number"
+        name="number"
+        placeholder="Player Number"
+        value={formData.number}
         onChange={handleChange}
         />
         

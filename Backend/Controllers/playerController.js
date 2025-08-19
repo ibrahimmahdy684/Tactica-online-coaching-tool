@@ -63,7 +63,7 @@ getSpecificPlayer:async(req,res)=>{
 },
 getCurrentUserPlayers:async(req,res)=>{
 try{
-    const player=await playerModel.find({coach:req.user.userId});
+    const player=await playerModel.find({coach:req.user._id});
     return res.status(200).json(player);
 }
 catch(error){

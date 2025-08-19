@@ -16,13 +16,13 @@ const MyPlayers=()=>{
         const fetchPlayers=async ()=>{
         try{
         const token=localStorage.getItem("token");
-        const players= await axios.get("http://localhost:5000/api/v1/users/players",{
+        const players= await axios.get("http://localhost:5000/api/v1/user/players",{
         headers: {
           Authorization: `Bearer ${token}`,
         },
         withCredentials: true,
       });
-        setPlayers(players);
+        setPlayers(players.data);
         setLoading(false);
         }
         catch(error){
@@ -36,7 +36,7 @@ const MyPlayers=()=>{
     const handleDelete=async (id)=>{
         try{
             const token=localStorage.getItem("token");
-            await axios.delete(`http://localhost:3000/api/v1/players/${id}`,{
+            await axios.delete(`http://localhost:5000/api/v1/players/${id}`,{
                 headers:{
                     Authorization:`Bearer ${token}`
                 },
@@ -88,7 +88,7 @@ const MyPlayers=()=>{
                 </button>
             </div>
             <div>
-                {filteredPlayers>0?(
+                {filteredPlayers.length>0?(
                     
                     filteredPlayers.map((player)=> (<div key={player._id} style={{ marginBottom: "1rem" }}>
               <PlayerCard player={player} />

@@ -27,7 +27,7 @@ const authController={
     
     return res.status(201).json({
         message:"User registered successfully",
-        user:userWithoutSensetiveData
+        user:userWithoutSensetiveData,
     });
 }
 
@@ -63,7 +63,8 @@ const authController={
         secure:false
     }).status(200).json({
         message:"Login successfully",
-        user:userWithoutSensetiveData
+        user:userWithoutSensetiveData,
+        token
     });
 }
 catch(error){

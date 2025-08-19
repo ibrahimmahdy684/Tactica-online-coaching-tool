@@ -9,6 +9,10 @@ const playerSchema=new mongoose.Schema({
         enum:["GK","DEF","MID","ATT"],
         required:true
     },
+    number:{
+        type:Number,
+        required:true
+    },
     rating:{
         type:Number,
         required:true

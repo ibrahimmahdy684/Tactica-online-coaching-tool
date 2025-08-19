@@ -4,7 +4,14 @@ function authenticateUser(req,res,next){
     if(!cookie)
         return res.status(401).json({message:"no cookie provided"});
         
-    const token=cookie.token;
+    let token=cookie.token;
+
+    if (!token && req.headers.authorization) {
+    const authHeader = req.headers.authorization;
+    if (authHeader.startsWith("Bearer ")) {
+      token = authHeader.split(" ")[1];
+    }
+  }
     if(!token)
         return res.status(401).json({message:"no token provided"});
 

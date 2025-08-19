@@ -10,19 +10,28 @@ export default function Login(){
     const[error,setError]=useState("");
     const{login}=useContext(AuthContext);
     const navigate=useNavigate();
-    const handleSubmit=async (e)=>{
-        e.preventDefault();
-        try{
-            const res=await axios.post("http://localhost:5000/api/v1/login",{email,password});
-            console.log("successful");
-            login(res.data.token);
-            
-            navigate("/dashboard");
-        }
-        catch(error){
-        toast.error("login failed");
-        }
+    const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const res = await axios.post("http://localhost:5000/api/v1/login", {
+      email,
+      password,
+    });
+
+    console.log("Login response:", res.data); 
+
+    if (res.data.token) {
+      login(res.data.token); 
+      navigate("/dashboard");
+    } else {
+      toast.error("No token returned from server");
     }
+  } catch (error) {
+    console.error("Login error:", error);
+    toast.error("Login failed");
+  }
+};
+
     return(
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
             <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-80 space-y-4">

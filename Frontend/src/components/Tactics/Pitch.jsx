@@ -15,6 +15,14 @@ export default function Pitch({ children, onDropPlayer }) {
       const left = ((offset.x - pitchRect.left) / pitchRect.width) * 100;
       const top = ((offset.y - pitchRect.top) / pitchRect.height) * 100;
 
+      const snap = 10;
+      left = Math.round(left / snap) * snap;
+      top = Math.round(top / snap) * snap;
+
+      left = Math.max(0, Math.min(100, left));
+      top = Math.max(0, Math.min(100, top));
+
+
       onDropPlayer(item.id, left, top);  
     },
     collect: (monitor) => ({
