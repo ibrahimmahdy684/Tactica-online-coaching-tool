@@ -1,5 +1,7 @@
-import { useState } from 'react'
+import { useState ,useEffect} from 'react'
 import { ToastContainer } from "react-toastify";
+import { toast } from 'react-toastify';
+import axios from 'axios';
 import './App.css'
 import './index.css'
 import { Route, BrowserRouter, Routes } from 'react-router-dom'
@@ -15,8 +17,28 @@ import PlayerForm from './components/Players/PlayerForm';
 import TacticsBoard from './components/Tactics/TacticsBoard';
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import MatchSimulator from './components/Match/MatchSimulator';
 function App() {
-
+  const[squad,setSquad]=useState([]);
+  const[loading,setLoading]=useState(true);
+   useEffect(()=>{
+const fetchPlayers = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        
+        const res = await axios.get("http://localhost:5000/api/v1/user/players", {
+          headers: { Authorization: `Bearer ${token}` },
+          withCredentials: true,
+        });
+        setSquad(res.data);
+        setLoading(false);
+      } catch (error) {
+        toast.error("Failed to get players");
+        setLoading(false);
+      }
+    };
+    fetchPlayers();
+  },[])
   return (
     <>
       <ToastContainer position='top-center' autoClose={3000}/>
@@ -52,6 +74,11 @@ function App() {
               <Route path='/tactics-board' element={
                 <ProtectedRoute>
                   <TacticsBoard/>
+                </ProtectedRoute>
+              }/>
+              <Route path='/match' element={
+                <ProtectedRoute>
+                <MatchSimulator squad={squad}/>
                 </ProtectedRoute>
               }/>
           </Routes>

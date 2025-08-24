@@ -4,13 +4,14 @@ import { AuthContext } from "../context/authcontext";
 import mm from "../../../assets/wp13465765.jpg"
 import axios from "axios";
 import { toast } from "react-toastify";
-// Example top players data (replace with your actual players)
+
 
 
 export default function Dashboard() {
   const{logout}=useContext(AuthContext);
   const[topPlayers,setTopPlayers]=useState([]);
   const[loading,setLoading]=useState(true);
+  
   useEffect(()=>{
   const fetchPlayers = async () => {
       try {
@@ -24,6 +25,7 @@ export default function Dashboard() {
     };
     fetchPlayers();
   },[])
+ 
   return (
     <div className="flex h-screen bg-gray-900 text-white">
       {/* Sidebar */}
@@ -32,7 +34,7 @@ export default function Dashboard() {
        
         <nav className="flex-1 space-y-2">
          <Link to={"/"}
-         className="block py-2 px-3 rounded-lg text-gray-300 hover:bg-gray-700 hover:text-white transition-colors"
+         className="block py-2 px-3 rounded-lg text-gray-300 hover:bg-gray-700 hover:text-white transition-colors "
          >
          Home
          </Link>
@@ -46,7 +48,13 @@ export default function Dashboard() {
          >
           Tactics Board
         </Link>
-          
+        
+        <Link to={"/match"}
+         className="block py-2 px-3 rounded-lg text-gray-300 hover:bg-gray-700 hover:text-white transition-colors"
+         >
+          Training Session
+        </Link>
+        
         </nav>
         <div className="mt-auto">
         <button onClick={logout}  
