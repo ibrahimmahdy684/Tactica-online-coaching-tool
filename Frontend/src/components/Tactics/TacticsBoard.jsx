@@ -112,9 +112,10 @@ useEffect(() => {
         return;
       }
 
-      const res = await axios.get("http://localhost:5000/api/v1/players", {
-        
-      });
+      const res = await axios.get("http://localhost:5000/api/v1/user/players", {
+          headers: { Authorization: `Bearer ${token}` },
+          withCredentials: true,
+        });
 
       // If your backend returns { players: [...] }
       setPlayers(res.data.players || res.data);

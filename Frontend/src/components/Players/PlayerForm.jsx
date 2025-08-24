@@ -37,7 +37,7 @@ export default function PlayerForm({ initialValues }) {
     e.preventDefault();
     const token = localStorage.getItem("token");
     try {
-      if (initialValues) {
+      if (id) {
         await axios.put(`http://localhost:5000/api/v1/players/${id}`, formData, {
           headers: { Authorization: `Bearer ${token}` },
           withCredentials: true,
@@ -62,7 +62,7 @@ export default function PlayerForm({ initialValues }) {
         className="bg-gray-800 p-8 rounded-xl shadow-lg w-full max-w-lg space-y-4"
       >
         <h2 className="text-3xl font-bold text-white text-center">
-          {initialValues ? "Edit Player" : "Create Player"}
+          {id ? "Edit Player" : "Create Player"}
         </h2>
 
         <input
@@ -192,7 +192,7 @@ export default function PlayerForm({ initialValues }) {
             type="submit"
             className="w-full bg-green-600 hover:bg-green-500 p-3 rounded text-white font-semibold transition"
           >
-            {initialValues ? "Update" : "Create"}
+            {id ? "Update" : "Create"}
           </button>
         </div>
       </form>

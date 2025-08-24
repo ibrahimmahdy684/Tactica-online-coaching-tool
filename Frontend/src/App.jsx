@@ -44,6 +44,11 @@ function App() {
               <PlayerForm/>
               </ProtectedRoute>
               }/>
+              <Route path="/player-form/:id" element={
+                <ProtectedRoute>
+                <PlayerForm />
+                </ProtectedRoute>
+                } />
               <Route path='/tactics-board' element={
                 <ProtectedRoute>
                   <TacticsBoard/>

@@ -16,7 +16,9 @@ const playerController={
             reflexes,
             handling,
             positioning,
-            kicking
+            kicking,
+            image,
+            number
         }=req.body;
         const newPlayer=new playerModel({
              name,
@@ -31,7 +33,9 @@ const playerController={
             reflexes,
             handling,
             positioning,
-            kicking
+            kicking,
+            image,
+            number
         });
         await newPlayer.save();
         return res.status(201).json({message:"Player created successfully"});
@@ -88,6 +92,15 @@ deletePlayer:async(req,res)=>{
         if(!player)
             return res.status(404).json({message:"Player not found"});
         return res.status(204).json({message:"player deleted successfully"});
+    }
+    catch(error){
+        return res.status(500).json({message:error.message});
+    }
+},
+getTopPlayers:async(req,res)=>{
+try{
+        const players=await playerModel.find().sort({rating:-1}).limit(4);
+        return res.status(200).json(players);
     }
     catch(error){
         return res.status(500).json({message:error.message});

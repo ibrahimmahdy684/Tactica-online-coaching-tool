@@ -18,6 +18,7 @@ const MyPlayers = () => {
     const fetchPlayers = async () => {
       try {
         const token = localStorage.getItem("token");
+        
         const res = await axios.get("http://localhost:5000/api/v1/user/players", {
           headers: { Authorization: `Bearer ${token}` },
           withCredentials: true,
