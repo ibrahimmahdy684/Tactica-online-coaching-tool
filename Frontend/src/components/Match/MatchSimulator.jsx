@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 export default function MatchSimulator({squad=[]}){
     const[teamA,setTeamA]=useState([]);
     const[teamB,setTeamB]=useState([]);
@@ -34,7 +35,7 @@ export default function MatchSimulator({squad=[]}){
       setMatchResult(res.data);
     } catch (err) {
       console.error(err);
-      alert("Error simulating match");
+      toast.error("Error simulating match");
     }
     setLoading(false);
   };
