@@ -90,5 +90,46 @@ npm install
 
 npm start
 
+## 📸 Screenshots
+Home Page:
+<p float="left">
+  <img src="https://github.com/user-attachments/assets/d7201dab-2197-4e21-8e89-30cdfac655ad" width="400" height="1000" />
+  <img src="https://github.com/user-attachments/assets/a7154ad4-506d-4ff7-be7c-43f57e106f5f" width="400" height="1000" />
+  <img src="https://github.com/user-attachments/assets/8ca79693-c3f2-456b-9898-268cdd3ee8d2" width="400" height="1000" />
+</p>
+
+
+Dashboard:
+<p float="left">
+  <img src="https://github.com/user-attachments/assets/44784153-6fd0-451b-b145-9f8dbda26b05" width="1000" height="800" />
+</p>
+
+Players:
+<img width="1897" height="869" alt="Screenshot 2025-09-01 022334" src="https://github.com/user-attachments/assets/4678ffa0-ea3b-4ad0-bbb5-103ead68419b" />
+
+
+Player Form:
+<img width="1898" height="866" alt="image" src="https://github.com/user-attachments/assets/bdac4e8d-51a7-4b02-a40b-b8fac52d272f" />
+
+Tactical Board
+<p float="left">
+  <img src="https://github.com/user-attachments/assets/eb1ae1a2-a8ea-4d7f-a541-fa9d1b3c99c8" width="500" height="1000" />
+  <img src="https://github.com/user-attachments/assets/d784f561-e932-4f08-8d4d-a42b27caed41" width="500" height="1000" />
+
+</p>
+Game Simulation
+<p float="left">
+  <img src="https://github.com/user-attachments/assets/fc185ef6-04b3-4350-99a3-a48dadf7616e" width="500" height="1000" />
+  <img src="https://github.com/user-attachments/assets/8d37e76f-21aa-4133-9dab-6b0849aeb5e2" width="500" height="1000" />
+  <img src="https://github.com/user-attachments/assets/f2b89136-c084-4010-8410-463bbabef736" width="500" height="1000" />
+  <img src="https://github.com/user-attachments/assets/332958dc-165d-4dc1-84e4-df50f5b7e8b5" width="500" height="1000" />
+
+</p>
+
+---
+
+## 🎥 Demo
+
+📽️  [Watch demo video](https://drive.google.com/file/d/18NNrePeraPr0nu2gO9ZyGjfVkSPEOhpQ/view?usp=sharing)  
 
 
